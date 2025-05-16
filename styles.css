@@ -2,53 +2,41 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f6f0eb; /* Soft cream background */
-    margin: 0;
-    padding: 0;
 }
 
 /* Typography */
 h1, h2 {
     font-family: 'Goudy Bookletter 1911', serif;
-    color: #c25c1b; /* Warm coral */
+    color: #eb794f; /* Warm coral */
 }
 
 h3 {
-    font-family: 'Lora', serif;
-    color: #6e8133; /* Soft orange */
+    font-family: 'Lustria', serif;
+    font-size: 22px;
+    transform: scaleY(1.1); /* Stretches the letters to 130% of their original height */
+    display: inline-block; /* Ensures transform works properly on text */
+    letter-spacing: 1px; /* Spaces out the letters */
+    color: #111111; /* Soft orange */
+}
+
+.text-right {
+    text-align: right;
 }
 
 .welcome-message h3 {
-    font-family: 'Goudy Bookletter 1911', serif;
-    font-size: 25px;
+    font-family: 'Noto Serif Display', serif;
+    font-size: 30px;
+    font-weight: 300; /* Makes the text bolder */
+    letter-spacing: 1.5px; /* Spaces out the letters */
     color: #e3e3e3 /* White text for contrast */
 }
 
 .welcome-message p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-family: 'Goudy Bookletter 1911', serif;
+    font-size: 18px;
     font-weight: 700; /* Makes the text bolder */
     letter-spacing: 2px; /* Spaces out the letters */
-    /*line-height: 0.8; /* Squishes the text down (for multi-line text) */
     color: #e3e3e3 /* White text for contrast */
-}
-
-/* Navigation */
-.navbar {
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    max-width: 500px;
-}
-
-.nav-link {
-    color: #eb794f;
-    font-weight: 600;
-}
-
-.nav-link:hover {
-    color: #ef7446;
 }
 
 /* Welcome Section */
@@ -107,33 +95,100 @@ h3 {
 
 /* About Section */
 #about {
-    background-color: #6e8133; /* Full-width green */
+    /*background-color: #cccccc; /* Full-width green */
+    /*height: 110vh; /* Full viewport height */
 }
 
 .about-content {
     background: #fff;
     padding: 2rem;
-    border-radius: 10px;
+    /*border-radius: 10px;*/
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .arch-photo {
-    border-radius: 75% 75% 0 0; /* Arched top */
+    border-top-left-radius: 25vw;
+    border-top-right-radius: 25vw;
     max-width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    max-height: 90vh; /* Limits height to fit within the section */
+    object-fit: contain; /* Ensures the entire photo is visible */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Services Section */
+/* Services Section Background */
+#services {
+    position: relative;
+    /*height: 100vh; /* Full viewport height */
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('baby-feet.jpg') center center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center; 
+    justify-content: center;
+}
+
+.service-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 2rem; /* Adds padding around the content */
+}
+
+.service-container h1 {
+    font-family: 'Goudy Bookletter 1911', serif;
+    color: #eb794f; /* Warm coral */
+    font-size: 56px;
+}
+
+/* Service Cards */
+.service-card h2 {
+    font-family: 'Lustria', serif;
+    font-size: 40px;
+    font-weight: 700;
+    transform: scaleY(1.1);
+    color: #111111; /* Soft orange */
+}
+
+.service-card h3 {
+    font-family: 'Lustria', serif;
+    font-size: 32px;
+    transform: scaleY(1.1); /* Stretches the letters to 130% of their original height */
+    display: inline-block; /* Ensures transform works properly on text */
+    letter-spacing: 1px; /* Spaces out the letters */
+    color: #111111; /* Soft orange */
+    text-align: center;
+}
+
 .service-card {
-    background: #fff;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.6); /* Semi-transparent white for readability */
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds depth to the cards */
+    transition: transform 0.3s ease; /* Added for smooth hover effect */
 }
 
 .service-card:hover {
     transform: translateY(-5px); /* Lift effect */
+}
+
+/* Ribbon Styling */
+.ribbon {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    background-color: #eb794f; /* Warm Coral or your preferred color */
+    color: #ffffff; /* White text for contrast */
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 5px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow */
+    transform: rotate(25deg); /* Optional: Slight rotation */
+    z-index: 10; /* Ensures it sits above other elements */
 }
 
 /* FAQ Section */
