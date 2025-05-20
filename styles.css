@@ -67,7 +67,7 @@ h3 {
 .welcome-message {
     position: absolute;
     bottom: 20px;
-    color: #fff; /* White text for contrast */
+    color: #fcfcfc; /* White text for contrast */
     text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); /* Shadow for readability */
     background: none; /* Removes transparent background box */
     padding: 0; /* Removes padding */
