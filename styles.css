@@ -98,11 +98,6 @@ h3 {
 }
 
 /* About Section */
-#about {
-    /*background-color: #cccccc; /* Full-width green */
-    /*height: 110vh; /* Full viewport height */
-}
-
 .about-content h1 {
     letter-spacing: 2px; /* Spaces out the letters */
 }
@@ -206,7 +201,7 @@ h3 {
     top: 10px;
     right: -10px;
     background-color: #eb794f; /* Warm Coral or your preferred color */
-    color: #ffffff; /* White text for contrast */
+    color: #fcfcfc; /* White text for contrast */
     padding: 5px 10px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -217,28 +212,143 @@ h3 {
 }
 
 /* FAQ Section */
+#faq {
+    padding: 5rem 0;
+}
+
+#faq h2 {
+    font-family: 'Goudy Bookletter 1911', serif;
+    color: #eb794f; /* Warm Coral */
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.accordion-item {
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
 .accordion-button {
-    background-color: #eb794f;
-    color: #fff;
+    background-color: #fcfcfc !important; /* White */
+    color: #eb794f !important; /* Warm Coral */
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    padding: 1.5rem;
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #ef7446;
+    background-color: #eb794f !important; /* Warm Coral */
+    font-weight: 500;
+    color: #fcfcfc !important; /* White */
+}
+
+.accordion-body {
+    background-color: #fcfcfc; /* White */
+    padding: 1.5rem;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #faq h2 {
+        font-size: 1.8rem;
+    }
+
+    .accordion-button {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .accordion-body {
+        font-size: 1rem;
+    }
 }
 
 /* Testimonials Section */
-.testimonial-content {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
+#testimonials {
+    padding: 5rem 0;
 }
 
-.carousel-indicators button {
-    background-color: #eb794f;
+#testimonials h2 {
+   font-family: 'Goudy Bookletter 1911', serif;
+    color: #eb794f; /* Warm Coral */
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.testimonial-card {
+    background-color: #fcfcfc; /* White */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.testimonial-quote {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #testimonials h2 {
+        font-size: 1.8rem;
+    }
+
+    .testimonial-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Philosophy Section */
+.philosophy-content h1 {
+    letter-spacing: 2px; /* Spaces out the letters */
+}
+
+.philosophy-content {
+    background: #fcfcfc; 
+    padding: 2rem;
+    /*border-radius: 10px;*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.philosophy-photo {
+    max-width: 100%;
+    height: auto; /* Maintains aspect ratio */
+    max-height: 80vh; /* Limits height to fit within the section */
+    object-fit: contain; /* Ensures the entire photo is visible */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Contact Section */
+#contact h1 {
+    font-size: 48px;
+    letter-spacing: 2px; /* Spaces out the letters */
+}
+
 .form-control, .form-select {
     border-radius: 5px;
 }
@@ -254,12 +364,12 @@ h3 {
 
 /* Footer */
 footer {
-    background: #fff;
+    background: #fcfcfc;
 }
 
 .social-icon {
     color: #eb794f;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .social-icon:hover {
