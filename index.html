@@ -285,9 +285,12 @@
     <script>
         AOS.init({ duration: 1000, once: true });
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            this.style.display = 'none';
-            document.getElementById('thankYouMessage').style.display = 'block';
+            e.preventDefault();  // Prevent immediate submission
+            this.style.display = 'none';  // Hide the form
+            document.getElementById('thankYouMessage').style.display = 'block';  // Show thank you message
+            setTimeout(() => {
+                this.submit();  // Submit the form programmatically
+            }, 2000);  // 2-second delay
         });
     </script>
 
