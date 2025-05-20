@@ -285,12 +285,29 @@
     <script>
         AOS.init({ duration: 1000, once: true });
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();  // Prevent immediate submission
-            this.style.display = 'none';  // Hide the form
-            document.getElementById('thankYouMessage').style.display = 'block';  // Show thank you message
-            setTimeout(() => {
-                this.submit();  // Submit the form programmatically
-            }, 2000);  // 2-second delay
+            e.preventDefault();
+
+            this.style.display = 'none';
+            document.getElementById('thankYouMessage').style.display = 'block';
+
+            // Collect the form data
+            const formData = new FormData(this);
+
+            // Send the form data to the server (or Netlify) asynchronously
+            fetch('/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Submission failed');
+                }
+                console.log('Form submitted successfully');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Optional: Show an error message if submission fails
+            });
         });
     </script>
 
