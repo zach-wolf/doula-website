@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private/  # Placeholder for future private content
+Allow: /
+
+Sitemap: https://sisterhooddoulaservices.com/sitemap.xml
