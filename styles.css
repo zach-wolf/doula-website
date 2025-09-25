@@ -145,25 +145,24 @@ h3 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Services Section */
-/* Services Section Background */
+/* Services Section - Updated for Three Packages */
 #services {
     position: relative;
-    /*height: 100vh; /* Full viewport height */
     background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('baby-feet.jpg') center center/cover no-repeat;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     align-items: center; 
     justify-content: center;
+    padding: 5rem 0; /* Added more padding for better spacing */
 }
 
 .service-container {
     position: relative;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding: 2rem; /* Adds padding around the content */
+    padding: 2rem;
+    max-width: 1400px; /* Increased max-width to accommodate three cards */
+    width: 100%;
 }
 
 .service-container h1 {
@@ -174,7 +173,21 @@ h3 {
     text-shadow: 0px 0px 4px rgba(101, 101, 101, 0.3); /* Shadow for readability */
 }
 
-/* Service Cards */
+/* Service Cards - Updated for three cards */
+.service-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: rgba(246, 240, 235, 0.9); /* Slightly more opaque for better readability */
+    padding: 2rem;
+    padding-bottom: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    transition: transform 0.3s ease;
+    height: 100%;
+    border-radius: 10px;
+    min-height: 550px; /* Ensures consistent height across all cards */
+}
+
 .service-card h2 {
     font-family: 'Lustria', serif;
     font-size: 40px;
@@ -185,23 +198,14 @@ h3 {
 
 .service-card h3 {
     font-family: 'Lustria', serif;
-    font-size: 32px;
+    font-size: 32px; /* Slightly smaller for better fit with three cards */
     transform: scaleY(1.1);
     color: #111111;
+    margin-bottom: 1rem;
 }
 
-.service-card {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    background-color: rgba(246, 240, 235, 0.7); /* Semi-transparent white for readability */
-    padding: 2rem;
-    padding-bottom: 0rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds depth to the cards */
-    transition: transform 0.3s ease; /* Added for smooth hover effect */
-    height: 100%;
-    margin: 0 auto;   /* Centers the card horizontally within the column */
-    border-radius: 10px;;
+.service-card:hover {
+    transform: translateY(-8px); /* Slightly more pronounced lift effect */
 }
 
 /* Price Styling */
@@ -211,8 +215,20 @@ h3 {
     font-weight: bold;
 }
 
-.service-card:hover {
-    transform: translateY(-5px); /* Lift effect */
+/* Included section styling */
+.service-card .included ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.service-card .included li {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+/* Consultation note styling */
+.consultation-note {
+    text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8); /* Same shadow as main heading */
 }
 
 /* Ribbon Styling */
@@ -229,6 +245,41 @@ h3 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Subtle shadow */
     transform: rotate(25deg); /* Optional: Slight rotation */
     z-index: 10; /* Ensures it sits above other elements */
+}
+
+/* Responsive adjustments for three cards */
+@media (max-width: 991px) {
+    /* On tablets and smaller, show 2 cards per row, then 1 */
+    .service-container .row .col-lg-4 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+    
+    .service-card {
+        min-height: auto; /* Remove fixed height on mobile */
+    }
+}
+
+@media (min-width: 992px) {
+    /* On desktop, ensure equal width for three cards */
+    .service-container .row .col-lg-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-container h1 {
+        font-size: 42px; /* Smaller heading on mobile */
+    }
+    
+    .service-card h3 {
+        font-size: 24px; /* Smaller card titles on mobile */
+    }
+    
+    .service-container {
+        padding: 1rem; /* Less padding on mobile */
+    }
 }
 
 /* FAQ Section */
@@ -341,6 +392,82 @@ h3 {
     font-size: 0.9rem;
     font-style: italic;
     text-align: right;
+}
+
+/* Testimonials Carousel Styling */
+#testimonials .carousel-control-prev,
+#testimonials .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(235, 121, 79, 0.8); /* Warm coral with transparency */
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#testimonials .carousel-control-prev {
+    left: -25px;
+}
+
+#testimonials .carousel-control-next {
+    right: -25px;
+}
+
+#testimonials .carousel-control-prev:hover,
+#testimonials .carousel-control-next:hover {
+    background-color: rgba(235, 121, 79, 1); /* Solid coral on hover */
+}
+
+#testimonials .carousel-control-prev-icon,
+#testimonials .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    background-size: 20px 20px;
+}
+
+/* Carousel Indicators */
+#testimonials .carousel-indicators {
+    bottom: -50px;
+    margin-bottom: 0;
+}
+
+#testimonials .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(235, 121, 79, 0.5);
+    border: none;
+    margin: 0 5px;
+}
+
+#testimonials .carousel-indicators button.active {
+    background-color: #eb794f; /* Solid coral for active indicator */
+}
+
+/* Ensure testimonial cards have consistent height in carousel */
+#testimonials .carousel-item .testimonial-card {
+    height: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Responsive adjustments for carousel */
+@media (max-width: 768px) {
+    #testimonials .carousel-control-prev,
+    #testimonials .carousel-control-next {
+        display: none; /* Hide arrows on mobile - users can swipe */
+    }
+    
+    #testimonials .carousel {
+        touch-action: pan-y pinch-zoom; /* Enable touch swiping */
+    }
+    
+    /* Stack testimonials vertically on mobile */
+    #testimonials .carousel-item .row .col-md-4 {
+        margin-bottom: 2rem;
+    }
 }
 
 /* Responsive Adjustments */
