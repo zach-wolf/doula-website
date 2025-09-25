@@ -330,16 +330,144 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+        // Track scroll depth
+        let scrollTracked = false;
+        window.addEventListener('scroll', function() {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            
+            // Track 75% scroll depth (indicates serious interest)
+            if (scrollPercent >= 75 && !scrollTracked) {
+                scrollTracked = true;
+                gtag('event', 'scroll', {
+                    'event_category': 'Engagement',
+                    'event_label': '75% Scroll Depth',
+                    'value': scrollPercent
+                });
+            }
+        });
+
+        // Track FAQ interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Track FAQ accordion clicks
+            const faqButtons = document.querySelectorAll('#faqAccordion .accordion-button');
+            faqButtons.forEach(function(button, index) {
+                button.addEventListener('click', function() {
+                    const questionText = this.textContent.trim();
+                    gtag('event', 'faq_interaction', {
+                        'event_category': 'Engagement',
+                        'event_label': questionText,
+                        'faq_position': index + 1
+                    });
+                });
+            });
+            
+            // Track service package views (when they come into viewport)
+            const serviceCards = document.querySelectorAll('.service-card');
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const packageName = entry.target.querySelector('h3').textContent;
+                        gtag('event', 'view_item', {
+                            'event_category': 'Services',
+                            'event_label': packageName + ' Package Viewed',
+                            'item_name': packageName
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            serviceCards.forEach(function(card) {
+                observer.observe(card);
+            });
+            
+            // Track social media clicks
+            const socialLinks = document.querySelectorAll('a[href*="instagram"]');
+            socialLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    gtag('event', 'click', {
+                        'event_category': 'Social Media',
+                        'event_label': 'Instagram Click',
+                        'transport_type': 'beacon'
+                    });
+                });
+            });
+            
+            // Track testimonial carousel interactions
+            const carousel = document.getElementById('testimonialsCarousel');
+            if (carousel) {
+                carousel.addEventListener('slide.bs.carousel', function(e) {
+                    gtag('event', 'testimonial_view', {
+                        'event_category': 'Engagement',
+                        'event_label': 'Testimonial Carousel Slide',
+                        'slide_number': e.to
+                    });
+                });
+            }
+            
+            // Track time on key sections
+            const keyElements = {
+                'services': document.getElementById('services'),
+                'about': document.getElementById('about'),
+                'testimonials': document.getElementById('testimonials')
+            };
+            
+            Object.keys(keyElements).forEach(function(sectionName) {
+                if (keyElements[sectionName]) {
+                    let startTime = null;
+                    const sectionObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                startTime = Date.now();
+                            } else if (startTime) {
+                                const timeSpent = Math.round((Date.now() - startTime) / 1000);
+                                if (timeSpent > 10) { // Only track if spent more than 10 seconds
+                                    gtag('event', 'section_time', {
+                                        'event_category': 'Engagement',
+                                        'event_label': sectionName + ' Section Time',
+                                        'value': timeSpent
+                                    });
+                                }
+                                startTime = null;
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    sectionObserver.observe(keyElements[sectionName]);
+                }
+            });
+        });
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
+            // Get form data for analytics
+            const formData = new FormData(this);
+            const referralSource = formData.get('referral');
+            const dueDate = formData.get('dueDate');
+
+            // Track form submission to Google Analytics
+            gtag('event', 'form_submit', {
+                'event_category': 'Contact',
+                'event_label': 'Contact Form Submission',
+                'value': 1,
+                'custom_parameters': {
+                    'referral_source': referralSource,
+                    'has_due_date': dueDate ? 'yes' : 'no'
+                }
+            });
+
+            // Track as conversion event
+            gtag('event', 'generate_lead', {
+                'currency': 'USD',
+                'value': 1200, // Average package value
+                'event_category': 'Lead Generation',
+                'referral_source': referralSource
+            });
+
+            // Hide form and show thank you message
             this.style.display = 'none';
             document.getElementById('thankYouMessage').style.display = 'block';
 
-            // Collect the form data
-            const formData = new FormData(this);
-
-            // Send the form data to the server (or Netlify) asynchronously
+            // Send the form data to Netlify
             fetch('/', {
                 method: 'POST',
                 body: formData
@@ -352,7 +480,13 @@
             })
             .catch(error => {
                 console.error('Error:', error);
-                // Optional: Show an error message if submission fails
+                
+                // Track failed submissions
+                gtag('event', 'form_error', {
+                    'event_category': 'Contact',
+                    'event_label': 'Form Submission Failed',
+                    'error_message': error.message
+                });
             });
         });
     </script>
