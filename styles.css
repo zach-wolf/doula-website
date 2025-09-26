@@ -394,44 +394,84 @@ h3 {
     text-align: right;
 }
 
-/* Testimonials Carousel Styling */
-#testimonials .carousel-control-prev,
-#testimonials .carousel-control-next {
+/* Testimonials Section */
+#testimonials {
+    padding: 5rem 0;
+}
+
+#testimonials h2 {
+   font-family: 'Goudy Bookletter 1911', serif;
+    color: #eb794f; /* Warm Coral */
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.testimonial-card {
+    background-color: #fcfcfc; /* White */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.testimonial-quote {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Desktop/Tablet Testimonials Carousel Styling */
+#testimonialsCarousel .carousel-control-prev,
+#testimonialsCarousel .carousel-control-next {
     width: 50px;
     height: 50px;
-    background-color: rgba(235, 121, 79, 0.8); /* Warm coral with transparency */
+    background-color: rgba(235, 121, 79, 0.8);
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
 }
 
-#testimonials .carousel-control-prev {
+#testimonialsCarousel .carousel-control-prev {
     left: -25px;
 }
 
-#testimonials .carousel-control-next {
+#testimonialsCarousel .carousel-control-next {
     right: -25px;
 }
 
-#testimonials .carousel-control-prev:hover,
-#testimonials .carousel-control-next:hover {
-    background-color: rgba(235, 121, 79, 1); /* Solid coral on hover */
+#testimonialsCarousel .carousel-control-prev:hover,
+#testimonialsCarousel .carousel-control-next:hover {
+    background-color: rgba(235, 121, 79, 1);
 }
 
-#testimonials .carousel-control-prev-icon,
-#testimonials .carousel-control-next-icon {
+#testimonialsCarousel .carousel-control-prev-icon,
+#testimonialsCarousel .carousel-control-next-icon {
     width: 20px;
     height: 20px;
     background-size: 20px 20px;
 }
 
-/* Carousel Indicators */
-#testimonials .carousel-indicators {
+#testimonialsCarousel .carousel-indicators {
     bottom: -50px;
     margin-bottom: 0;
 }
 
-#testimonials .carousel-indicators button {
+#testimonialsCarousel .carousel-indicators button {
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -440,12 +480,11 @@ h3 {
     margin: 0 5px;
 }
 
-#testimonials .carousel-indicators button.active {
-    background-color: #eb794f; /* Solid coral for active indicator */
+#testimonialsCarousel .carousel-indicators button.active {
+    background-color: #eb794f;
 }
 
-/* Ensure testimonial cards have consistent height in carousel */
-#testimonials .carousel-item .testimonial-card {
+#testimonialsCarousel .carousel-item .testimonial-card {
     height: 100%;
     min-height: 300px;
     display: flex;
@@ -453,45 +492,47 @@ h3 {
     justify-content: space-between;
 }
 
-/* Mobile testimonials - fixed height container to prevent bouncing */
-@media (max-width: 767px) {
+/* Mobile Testimonials Carousel Styling */
+#mobileTestimonialsCarousel .carousel-indicators {
+    bottom: -50px;
+    margin-bottom: 0;
+}
+
+#mobileTestimonialsCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(235, 121, 79, 0.5);
+    border: none;
+    margin: 0 5px;
+}
+
+#mobileTestimonialsCarousel .carousel-indicators button.active {
+    background-color: #eb794f;
+}
+
+/* Responsive Breakpoints - Force Show/Hide Carousels */
+/* Desktop and Tablet - Show desktop carousel only */
+@media (min-width: 768px) {
+    #testimonialsCarousel {
+        display: block !important;
+    }
+    
     #mobileTestimonialsCarousel {
-        min-height: 450px; /* Minimum height to accommodate longest testimonial */
-        position: relative;
+        display: none !important;
     }
     
-    #mobileTestimonialsCarousel .carousel-inner {
-        min-height: 350px; /* Consistent inner height */
-        display: flex;
-        align-items: flex-start; /* Align cards to top */
-    }
-    
-    #mobileTestimonialsCarousel .carousel-item {
-        min-height: 350px; /* Match inner height */
-        display: flex;
-        align-items: flex-start; /* Align cards to top */
-    }
-    
-    #mobileTestimonialsCarousel .testimonial-card {
-        width: 100%;
-        margin-bottom: 0; /* Remove bottom margin to prevent extra space */
-    }
-    
-    /* Fix indicators position */
-    #mobileTestimonialsCarousel .carousel-indicators {
-        position: absolute;
-        bottom: -50px; /* Fixed position relative to container */
+    #testimonials h2 {
+        font-size: 48px;
     }
 }
 
-/* Force hide desktop testimonials on mobile - add to your CSS */
+/* Mobile - Show mobile carousel only */
 @media (max-width: 767px) {
-    /* Completely hide desktop carousel on mobile */
     #testimonialsCarousel {
         display: none !important;
     }
     
-    /* Ensure mobile carousel is visible and properly positioned */
     #mobileTestimonialsCarousel {
         display: block !important;
         min-height: 450px;
@@ -508,27 +549,26 @@ h3 {
         min-height: 350px;
         display: flex;
         align-items: flex-start;
+        width: 100%;
     }
     
     #mobileTestimonialsCarousel .testimonial-card {
         width: 100%;
         margin-bottom: 0;
+        max-width: 100%;
     }
     
     #mobileTestimonialsCarousel .carousel-indicators {
         position: absolute;
         bottom: -50px;
     }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+    
     #testimonials h2 {
         font-size: 1.8rem;
     }
-
+    
     .testimonial-card {
-        margin-bottom: 1.5rem;
+        margin-bottom: 0;
     }
 }
 
