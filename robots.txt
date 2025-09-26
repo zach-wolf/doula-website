@@ -1,5 +1,34 @@
-User-agent: *
-Disallow: /private/  # Placeholder for future private content
-Allow: /
+# robots.txt for Sisterhood Doula Services
+# https://sisterhooddoulaservices.com/robots.txt
 
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_netlify/
+Disallow: /*.pdf
+Disallow: /temp/
+
+# Allow important files
+Allow: /favicon.ico
+Allow: /apple-touch-icon.png
+Allow: /sitemap.xml
+
+# Block AI training crawlers (optional - if you want to prevent AI training on your content)
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: Google-Extended
+# Disallow: /
+
+# User-agent: CCBot
+# Disallow: /
+
+# Sitemap location
 Sitemap: https://sisterhooddoulaservices.com/sitemap.xml
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
