@@ -493,6 +493,39 @@ h3 {
     }
 }
 
+/* Add this to your existing CSS - Mobile bounce fix without breaking dual carousel */
+@media (max-width: 767px) {
+    /* Fix bouncing on mobile testimonials only */
+    #mobileTestimonialsCarousel {
+        min-height: 450px;
+        position: relative;
+    }
+    
+    #mobileTestimonialsCarousel .carousel-inner {
+        min-height: 350px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    #mobileTestimonialsCarousel .carousel-item {
+        min-height: 350px;
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    #mobileTestimonialsCarousel .testimonial-card {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    /* Keep indicators in fixed position */
+    #mobileTestimonialsCarousel .carousel-indicators {
+        position: absolute;
+        bottom: -50px;
+    }
+}
+
 /* Philosophy Section */
 .philosophy-content h1 {
     letter-spacing: 2px; /* Spaces out the letters */
