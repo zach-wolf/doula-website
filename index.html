@@ -1114,8 +1114,56 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Instagram Embed Script (add this once, at the bottom of your page) -->
-<script async src="//www.instagram.com/embed.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function handleTestimonialsDisplay() {
+        const desktopCarousel = document.getElementById('testimonialsCarousel');
+        const mobileCarousel = document.getElementById('mobileTestimonialsCarousel');
+        const isMobile = window.innerWidth <= 767;
+        
+        if (isMobile) {
+            // Completely hide and disable desktop carousel
+            if (desktopCarousel) {
+                desktopCarousel.style.display = 'none';
+                desktopCarousel.style.visibility = 'hidden';
+                desktopCarousel.style.position = 'absolute';
+                desktopCarousel.style.left = '-9999px';
+            }
+            // Show and enable mobile carousel
+            if (mobileCarousel) {
+                mobileCarousel.style.display = 'block';
+                mobileCarousel.style.visibility = 'visible';
+                mobileCarousel.style.position = 'relative';
+                mobileCarousel.style.left = 'auto';
+            }
+        } else {
+            // Completely hide and disable mobile carousel
+            if (mobileCarousel) {
+                mobileCarousel.style.display = 'none';
+                mobileCarousel.style.visibility = 'hidden';
+                mobileCarousel.style.position = 'absolute';
+                mobileCarousel.style.left = '-9999px';
+            }
+            // Show and enable desktop carousel
+            if (desktopCarousel) {
+                desktopCarousel.style.display = 'block';
+                desktopCarousel.style.visibility = 'visible';
+                desktopCarousel.style.position = 'relative';
+                desktopCarousel.style.left = 'auto';
+            }
+        }
+    }
+    
+    // Run immediately
+    handleTestimonialsDisplay();
+    
+    // Run on window resize
+    window.addEventListener('resize', handleTestimonialsDisplay);
+    
+    // Run again after Bootstrap finishes loading
+    setTimeout(handleTestimonialsDisplay, 500);
+});
+</script>
 
 </body>
 </html>
