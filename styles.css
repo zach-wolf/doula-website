@@ -453,35 +453,6 @@ h3 {
     justify-content: space-between;
 }
 
-/* Responsive adjustments for testimonials carousel */
-@media (max-width: 768px) {
-    #testimonials .carousel-control-prev,
-    #testimonials .carousel-control-next {
-        display: none; /* Hide arrows on mobile - users can swipe */
-    }
-    
-    #testimonials .carousel {
-        touch-action: pan-y pinch-zoom; /* Enable touch swiping */
-    }
-    
-    /* Show only one testimonial at a time on mobile */
-    #testimonials .carousel-item .row {
-        display: block; /* Override flex layout */
-    }
-    
-    #testimonials .carousel-item .row .col-md-4 {
-        display: none; /* Hide all testimonials by default */
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin-bottom: 0;
-    }
-    
-    /* Show only the first testimonial on each slide */
-    #testimonials .carousel-item .row .col-md-4:first-child {
-        display: block; /* Show only the first testimonial */
-    }
-}
-
 /* Mobile testimonials - fixed height container to prevent bouncing */
 @media (max-width: 767px) {
     #mobileTestimonialsCarousel {
