@@ -510,16 +510,6 @@ h3 {
         height: 100vh;
         position: relative;
     }
-    
-    /* Position indicators relative to each card */
-    #mobileTestimonialsCarousel .carousel-indicators {
-        position: absolute;
-        bottom: 10px; /* Fixed distance from bottom of card */
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0;
-        width: auto;
-    }
 }
 
 /* Philosophy Section */
