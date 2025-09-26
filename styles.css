@@ -353,6 +353,47 @@ h3 {
     }
 }
 
+/* Testimonials Section */
+#testimonials {
+    padding: 5rem 0;
+}
+
+#testimonials h2 {
+   font-family: 'Goudy Bookletter 1911', serif;
+    color: #eb794f; /* Warm Coral */
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.testimonial-card {
+    background-color: #fcfcfc; /* White */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.testimonial-quote {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: right;
+}
+
 /* Testimonials Carousel Styling */
 #testimonials .carousel-control-prev,
 #testimonials .carousel-control-next {
@@ -423,10 +464,19 @@ h3 {
         touch-action: pan-y pinch-zoom; /* Enable touch swiping */
     }
     
-    /* Single testimonial per row on mobile for better readability */
+    /* Stack testimonials vertically on mobile */
     #testimonials .carousel-item .row .col-md-4 {
-        flex: 0 0 100%;
-        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #testimonials h2 {
+        font-size: 1.8rem;
+    }
+
+    .testimonial-card {
         margin-bottom: 1.5rem;
     }
 }
