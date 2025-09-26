@@ -493,25 +493,6 @@ h3 {
     }
 }
 
-/* Replace your current mobile testimonials CSS with this */
-@media (max-width: 767px) {
-    /* Completely hide desktop carousel on mobile */
-    #testimonialsCarousel {
-        display: none !important;
-        visibility: hidden !important;
-        height: 0 !important;
-        overflow: hidden !important;
-    }
-    
-    /* Show and fix mobile carousel */
-    #mobileTestimonialsCarousel {
-        display: block !important;
-        visibility: visible !important;
-        height: 100vh;
-        position: relative;
-    }
-}
-
 /* Philosophy Section */
 .philosophy-content h1 {
     letter-spacing: 2px; /* Spaces out the letters */
