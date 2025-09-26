@@ -482,6 +482,37 @@ h3 {
     }
 }
 
+/* Mobile testimonials - fixed height container to prevent bouncing */
+@media (max-width: 767px) {
+    #mobileTestimonialsCarousel {
+        min-height: 450px; /* Minimum height to accommodate longest testimonial */
+        position: relative;
+    }
+    
+    #mobileTestimonialsCarousel .carousel-inner {
+        min-height: 350px; /* Consistent inner height */
+        display: flex;
+        align-items: flex-start; /* Align cards to top */
+    }
+    
+    #mobileTestimonialsCarousel .carousel-item {
+        min-height: 350px; /* Match inner height */
+        display: flex;
+        align-items: flex-start; /* Align cards to top */
+    }
+    
+    #mobileTestimonialsCarousel .testimonial-card {
+        width: 100%;
+        margin-bottom: 0; /* Remove bottom margin to prevent extra space */
+    }
+    
+    /* Fix indicators position */
+    #mobileTestimonialsCarousel .carousel-indicators {
+        position: absolute;
+        bottom: -50px; /* Fixed position relative to container */
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     #testimonials h2 {
