@@ -501,6 +501,99 @@ h3 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Instagram Gallery Section */
+#gallery {
+    background-color: rgb(246, 240, 235);
+    padding: 5rem 0;
+}
+
+#gallery h2 {
+    font-family: 'Goudy Bookletter 1911', serif;
+    color: #eb794f;
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.instagram-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.instagram-embed-wrapper {
+    background: #fcfcfc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.instagram-embed-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+/* Instagram embed styling */
+.instagram-embed-wrapper .instagram-media {
+    margin: 0 !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+}
+
+/* Placeholder styling (remove when you add real embeds) */
+.instagram-placeholder {
+    background: #fcfcfc;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: #eb794f;
+    border-radius: 10px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.instagram-placeholder p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.instagram-placeholder small {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    /* On tablets: 2 columns */
+    .instagram-grid .row .col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 767px) {
+    /* On mobile: 1 column */
+    #gallery h2 {
+        font-size: 1.8rem;
+    }
+    
+    .instagram-grid .row .col-lg-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Ensure consistent heights */
+@media (min-width: 992px) {
+    .instagram-embed-wrapper {
+        min-height: 400px;
+    }
+}
+
 /* Contact Section */
 #contact h1 {
     font-size: 48px;
