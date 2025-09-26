@@ -484,6 +484,43 @@ h3 {
     }
 }
 
+/* Force hide desktop testimonials on mobile - add to your CSS */
+@media (max-width: 767px) {
+    /* Completely hide desktop carousel on mobile */
+    #testimonialsCarousel {
+        display: none !important;
+    }
+    
+    /* Ensure mobile carousel is visible and properly positioned */
+    #mobileTestimonialsCarousel {
+        display: block !important;
+        min-height: 450px;
+        position: relative;
+    }
+    
+    #mobileTestimonialsCarousel .carousel-inner {
+        min-height: 350px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    #mobileTestimonialsCarousel .carousel-item {
+        min-height: 350px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    #mobileTestimonialsCarousel .testimonial-card {
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    #mobileTestimonialsCarousel .carousel-indicators {
+        position: absolute;
+        bottom: -50px;
+    }
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     #testimonials h2 {
