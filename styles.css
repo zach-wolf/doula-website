@@ -510,33 +510,6 @@ h3 {
         min-height: 450px;
         position: relative;
     }
-    
-    #mobileTestimonialsCarousel .carousel-inner {
-        min-height: 350px;
-        display: flex;
-        align-items: flex-start;
-    }
-    
-    #mobileTestimonialsCarousel .carousel-item {
-        min-height: 350px;
-        display: flex;
-        align-items: flex-start;
-        width: 100%;
-    }
-    
-    #mobileTestimonialsCarousel .testimonial-card {
-        width: 100%;
-        margin-bottom: 0;
-    }
-    
-    #mobileTestimonialsCarousel .carousel-indicators {
-        position: absolute;
-        bottom: -50px;
-    }
-    
-    #testimonials h2 {
-        font-size: 1.8rem;
-    }
 }
 
 /* Philosophy Section */
