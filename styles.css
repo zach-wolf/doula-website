@@ -523,7 +523,6 @@ h3 {
     #mobileTestimonialsCarousel .testimonial-card {
         width: 100%;
         max-width: 90%;
-        margin-bottom: 60px; /* Space for indicators below card */
     }
     
     /* Position indicators relative to each card */
