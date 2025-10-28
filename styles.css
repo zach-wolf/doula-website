@@ -454,42 +454,49 @@ h3 {
 }
 
 /* Responsive adjustments for testimonials carousel */
-@media (max-width: 768px) {
-    #testimonials .carousel-control-prev,
-    #testimonials .carousel-control-next {
-        display: none; /* Hide arrows on mobile - users can swipe */
+@media (max-width: 767px) {
+    /* Completely hide desktop carousel on mobile */
+    #testimonialsCarousel {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        overflow: hidden !important;
     }
     
-    #testimonials .carousel {
-        touch-action: pan-y pinch-zoom; /* Enable touch swiping */
+    /* Show mobile carousel with fixed height */
+    #mobileTestimonialsCarousel {
+        display: block !important;
+        visibility: visible !important;
+        min-height: 500px; /* Fixed container height */
+        position: relative;
     }
     
-    /* Show only one testimonial at a time on mobile */
-    #testimonials .carousel-item .row {
-        display: block; /* Override flex layout */
+    #mobileTestimonialsCarousel .carousel-inner {
+        min-height: 450px; /* Consistent inner height */
+        display: flex;
+        align-items: flex-start; /* Align cards to top */
     }
     
-    #testimonials .carousel-item .row .col-md-4 {
-        display: none; /* Hide all testimonials by default */
-        flex: 0 0 100%;
-        max-width: 100%;
+    #mobileTestimonialsCarousel .carousel-item {
+        min-height: 450px; /* Match inner height */
+        display: flex;
+        align-items: flex-start; /* Align cards to top */
+    }
+    
+    #mobileTestimonialsCarousel .testimonial-card {
+        width: 100%;
         margin-bottom: 0;
+        /* Cards will naturally size to their content, but container stays fixed */
     }
     
-    /* Show only the first testimonial on each slide */
-    #testimonials .carousel-item .row .col-md-4:first-child {
-        display: block; /* Show only the first testimonial */
+    /* Position indicators consistently */
+    #mobileTestimonialsCarousel .carousel-indicators {
+        position: absolute;
+        bottom: -50px; /* Fixed distance from container bottom */
     }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+    
     #testimonials h2 {
         font-size: 1.8rem;
-    }
-
-    .testimonial-card {
-        margin-bottom: 1.5rem;
     }
 }
 
